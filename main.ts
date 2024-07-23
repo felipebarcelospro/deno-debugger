@@ -12,7 +12,12 @@ router
   .get("/ping", (context) => {
     context.response.status = 200;
     context.response.headers.set("content-type", "application/json; charset=utf-8");
-    context.response.body = { message: "pong" };
+    context.response.body = { 
+      message: "pong",
+      envs: {
+        'x-token': Deno.env.get("x-token"),
+      }
+    };
   });
 
 app.use(router.routes());
