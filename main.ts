@@ -1,16 +1,6 @@
-Deno.serve(async (req) => {
-  console.log("Method:", req.method);
-
+Deno.serve((req) => {
   const url = new URL(req.url);
-  console.log("Path:", url.pathname);
-  console.log("Query parameters:", url.searchParams);
-
-  console.log("Headers:", req.headers);
-
-  if (req.body) {
-    const body = await req.text();
-    console.log("Body:", body);
-  }
+  console.log(`(${req.method}) ${url.pathname} - ${req.headers.get("user-agent")}`);
 
   return new Response("Hello, world", {
     status: 200,
