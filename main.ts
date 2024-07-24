@@ -7,7 +7,7 @@ router
   .get("/", (context) => {
     context.response.status = 200;
     context.response.headers.set("content-type", "text/plain; charset=utf-8");
-    context.response.body = "Hello, world";
+    context.response.body = "Sample Deno API";
   })
   .get("/ping", (context) => {
     context.response.status = 200;
